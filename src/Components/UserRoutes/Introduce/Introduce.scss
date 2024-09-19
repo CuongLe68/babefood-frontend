@@ -1,0 +1,36 @@
+.introduce-container {
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+
+    .introduce-wrapper {
+        width: 100%;
+        min-height: 60vh;
+        padding: 2rem 20rem;
+        font-size: 2rem;
+
+        //Xoá từ đây xuống
+        .maintenance-text {
+            font-family: 'Arial', sans-serif; /* Thay đổi font chữ nếu cần thiết */
+            font-size: 2.8rem; /* Đổi kích thước font chữ */
+            font-weight: bold;
+            text-align: center;
+            margin-top: 100px;
+            opacity: 0;
+            animation: fadeIn 0.2s ease-in-out forwards, textAnimation 0.2s steps(60) infinite;
+            color: #333; /* Màu chữ */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Đổ bóng chữ */
+            letter-spacing: 1px; /* Khoảng cách giữa các chữ cái */
+            text-transform: uppercase; /* Chuyển tất cả chữ thành in hoa */
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    }
+}

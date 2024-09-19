@@ -1,0 +1,624 @@
+.payment-container {
+    width: 100%;
+
+    .payment-show-sidebar {
+        display: none;
+    }
+
+    .payment-wrapper {
+        width: 100%;
+        min-height: 44vh;
+        margin: 1rem 0;
+        padding: 9rem 20rem 2rem;
+
+        .adress {
+            width: 100%;
+            margin: 1rem 0;
+            box-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 20%);
+
+            .title {
+                font-size: 1.7rem;
+                display: flex;
+                padding: 2rem 2rem 0;
+                font-weight: 600;
+
+                svg {
+                    color: var(--text-green);
+                    font-size: 1.9rem;
+                    padding-right: 1rem;
+                }
+            }
+
+            .info {
+                display: flex;
+                align-items: center;
+                padding: 1rem 2rem 2rem;
+
+                h3 {
+                    font-size: 1.5rem;
+                }
+
+                p {
+                    font-size: 1.5rem;
+                    padding: 0 2rem;
+                    color: var(--text-black-08);
+                }
+
+                span {
+                    display: block;
+                    font-size: 1.3rem;
+                    color: var(--text-green);
+                    border: 0.1rem solid var(--text-green);
+                    padding: 0.3rem 0.6rem;
+                }
+
+                a {
+                    font-size: 1.5rem;
+                    padding-left: 1rem;
+                }
+            }
+
+            .info-mobile {
+                display: none;
+            }
+        }
+
+        .product {
+            width: 100%;
+            margin: 1rem 0;
+            box-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 20%);
+
+            .title {
+                padding: 2rem 2rem 0;
+
+                p {
+                    font-size: 1.8rem;
+                    font-weight: 600;
+                    text-align: left;
+                }
+            }
+
+            .wrapper {
+                width: 100%;
+
+                .item {
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 1rem 0;
+
+                    .col-10 {
+                        width: 10%;
+                        font-size: 1.5rem;
+
+                        span {
+                            font-size: 1.5rem;
+                        }
+                    }
+
+                    .col-20 {
+                        width: 20%;
+                        font-size: 1.5rem;
+
+                        span {
+                            font-size: 1.5rem;
+                        }
+                    }
+
+                    .col-60 {
+                        width: 60%;
+                        font-size: 1.5rem;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        input {
+                            margin-left: 1rem;
+                        }
+
+                        .avatar {
+                            width: 16%;
+                            padding: 1rem;
+                            img {
+                                width: 90%;
+                                background-size: cover;
+                                background-repeat: no-repeat;
+                                background-position: center;
+                            }
+                        }
+
+                        p {
+                            width: 84%;
+                            text-align: left;
+                            font-size: 1.5rem;
+                        }
+                    }
+                }
+
+                .total {
+                    width: 100%;
+                    height: 6rem;
+                    border-top: 0.1rem solid var(--border-line);
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                    font-size: 1.7rem;
+
+                    p {
+                        min-width: 18rem;
+                        max-width: 20rem;
+                        padding-right: 6rem;
+                        font-size: 1.7rem;
+                        color: var(--text-green);
+                    }
+                }
+            }
+
+            .wrapper-mobile {
+                display: none;
+            }
+        }
+
+        .payment {
+            width: 100%;
+            margin: 1rem 0;
+            box-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 20%);
+
+            .title {
+                padding: 2rem 2rem 0;
+
+                p {
+                    font-size: 1.7rem;
+                    font-weight: 600;
+                    text-align: left;
+                }
+
+                .options {
+                    text-align: left;
+                    width: 100%;
+                    padding: 1rem 0;
+
+                    .item {
+                        font-size: 1.5rem;
+                        display: flex;
+                        align-items: center;
+                        padding: 1rem 0;
+
+                        input {
+                            margin-right: 1rem;
+                            width: 2rem;
+                            height: 2rem;
+                            cursor: pointer;
+                        }
+                    }
+
+                    .form-payment {
+                        width: 100%;
+                        height: 100%;
+                        display: none;
+
+                        span {
+                            font-size: 1.5rem;
+                            padding-left: 2rem;
+                            color: var(--btn-color);
+                        }
+
+                        .form-payment-des {
+                            width: 100%;
+                            display: flex;
+                            padding: 0.8rem 4rem;
+
+                            h3 {
+                                width: 20rem;
+                                font-size: 1.9rem;
+                                text-align: left;
+                            }
+
+                            p {
+                                flex: 1;
+                                font-size: 1.9rem;
+                                text-align: left;
+
+                                span {
+                                    font-size: 1.5rem;
+                                    font-weight: 400;
+                                }
+                            }
+                        }
+
+                        .form-payment-code {
+                            width: 100%;
+                            margin: 2rem 0 2rem 0;
+                            display: flex;
+                            align-items: center;
+
+                            span {
+                                font-size: 1.5rem;
+                            }
+
+                            input {
+                                width: 30rem;
+                                height: 4.4rem;
+                                border-radius: 1rem;
+                                margin-left: 1rem;
+                                outline: none;
+                                border: 0.1rem solid var(--border-line);
+                                font-size: 1.5rem;
+                                padding: 0 1rem;
+                            }
+                        }
+
+                        //css cho thanh toán tự động
+                        .form-payment-title {
+                            font-size: 1.6rem;
+                        }
+
+                        .form-payment-wrapper {
+                            width: 100%;
+                            .form-payment-wrapper-img {
+                                img {
+                                    width: 60%;
+                                    background-size: cover;
+                                    background-repeat: no-repeat;
+                                    background-position: center;
+                                }
+                            }
+                            .form-payment-info {
+                                width: 100%;
+                                margin-top: 1rem;
+
+                                .form-payment-info-desc {
+                                    font-size: 1.8rem;
+                                    font-weight: 600;
+                                    color: red;
+                                }
+
+                                .form-payment-info-item {
+                                    font-size: 1.6rem;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .confirm {
+                    display: flex;
+                    justify-content: flex-end;
+                    border-top: 0.1rem solid var(--border-line);
+
+                    .confirm-description {
+                        width: 28rem;
+                        padding: 2rem 0 1rem;
+
+                        .confirm-item {
+                            padding: 1rem;
+                            display: flex;
+                            justify-content: space-between;
+
+                            p {
+                                font-size: 1.5rem;
+                                font-weight: 400;
+                            }
+
+                            span {
+                                display: flex;
+                                font-size: 1.5rem;
+                            }
+                        }
+
+                        .confirm-item:nth-child(3) {
+                            border-top: 0.1rem solid var(--border-line);
+                        }
+
+                        .cofirm-btn {
+                            width: 100%;
+                            display: flex;
+                            justify-content: flex-end;
+                            padding: 2rem 1rem;
+
+                            button {
+                                font-size: 1.8rem;
+                                font-weight: 600;
+                                border: none;
+                                outline: none;
+                                background: var(--background-color);
+                                color: var(--text-white-color);
+                                padding: 1rem 3rem;
+                                border-radius: 1rem;
+                            }
+
+                            button:hover {
+                                opacity: 0.8;
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    .payment-container {
+        .payment-wrapper {
+            padding: 9rem 10rem 2rem !important;
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .payment-container {
+        .payment-wrapper {
+            padding: 9rem 4rem 2rem !important;
+        }
+    }
+}
+
+@media screen and (max-width: 769px) {
+    .payment-container {
+        .payment-show-sidebar {
+            display: flex;
+        }
+
+        .payment-wrapper {
+            padding: 5rem 2rem 2rem !important;
+
+            .adress {
+                .title {
+                    font-size: 1.6rem !important;
+                    svg {
+                        font-size: 1.8rem !important;
+                    }
+                }
+                .info {
+                    h3,
+                    p,
+                    a {
+                        font-size: 1.3rem !important;
+                    }
+
+                    span {
+                        font-size: 1.2rem !important;
+                    }
+                }
+            }
+
+            .product {
+                .title {
+                    p {
+                        font-size: 1.6rem !important;
+                    }
+                }
+                .wrapper {
+                    .item {
+                        h3 {
+                            font-size: 1.4rem !important;
+                        }
+
+                        .col-60 {
+                            width: 50% !important;
+
+                            .avatar {
+                                width: 20% !important;
+                                padding: 0.5rem !important;
+                            }
+                            p {
+                                font-size: 1.3rem !important;
+                            }
+                        }
+
+                        .col-10 {
+                            width: 15% !important;
+                        }
+
+                        .col-10,
+                        .col-20 {
+                            span {
+                                font-size: 1.3rem !important;
+                            }
+                        }
+                    }
+
+                    .total {
+                        font-size: 1.5rem !important;
+
+                        p {
+                            font-size: 1.5rem !important;
+                            padding-right: 2rem !important;
+                        }
+                    }
+                }
+            }
+
+            .payment {
+                .title {
+                    p {
+                        font-size: 1.6rem !important;
+                    }
+                }
+
+                .options {
+                    .item {
+                        font-size: 1.3rem !important;
+
+                        input {
+                            width: 1.6rem !important;
+                            height: 1.6rem !important;
+                            margin-right: 0.6rem !important;
+                        }
+                    }
+                }
+
+                //css cho thanh toán tự động //đây
+                .form-payment-title {
+                    font-size: 1.3rem !important;
+                }
+
+                .form-payment-wrapper {
+                    .form-payment-info {
+                        .form-payment-info-desc {
+                            font-size: 1.4rem !important;
+                        }
+
+                        .form-payment-info-item {
+                            font-size: 1.3rem !important;
+                        }
+                    }
+                }
+            }
+
+            .confirm {
+                .confirm-description {
+                    width: 26rem !important;
+                    .confirm-item {
+                        p,
+                        span {
+                            font-size: 1.3rem !important;
+                        }
+                    }
+
+                    .cofirm-btn {
+                        padding: 1rem !important;
+
+                        button {
+                            font-size: 1.5rem !important;
+                            padding: 0.8rem 1.6rem !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .payment-container {
+        .payment-wrapper {
+            padding: 5rem 1rem 2rem !important;
+
+            .product {
+                .wrapper {
+                    .total {
+                        p {
+                            min-width: 10rem !important;
+                            max-width: 14rem !important;
+                        }
+                    }
+                }
+            }
+
+            .adress {
+                .info {
+                    padding: 1rem 1rem 2rem !important;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .payment-container {
+        .payment-wrapper {
+            .product {
+                .wrapper-desktop {
+                    display: none !important;
+                }
+                .wrapper-mobile {
+                    display: flex !important;
+                    flex-direction: column !important;
+
+                    .total {
+                        height: 5rem !important;
+                        font-size: 1.4rem !important;
+                        p {
+                            font-size: 1.4rem !important;
+                            padding: 0 1rem !important;
+                            min-width: 8rem !important;
+                            max-width: 12rem !important;
+                        }
+                    }
+
+                    .item {
+                        .col-60 {
+                            width: 100% !important;
+                            padding: 0 1rem;
+                            input {
+                                margin-left: 0 !important;
+                            }
+
+                            .right {
+                                width: 100%;
+                                display: flex;
+                                flex-direction: column;
+
+                                p,
+                                span {
+                                    width: 100%;
+                                    font-size: 1.3rem !important;
+                                    margin: 0.1rem 0;
+                                }
+
+                                span {
+                                    padding-left: 0.8rem;
+                                    color: red;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .adress,
+            .product,
+            .payment {
+                .title {
+                    padding: 1rem 1rem 0 1rem !important;
+                }
+            }
+
+            .adress {
+                .info-desktop {
+                    display: none !important;
+                }
+                .info-mobile {
+                    display: flex !important;
+                    flex-direction: column !important;
+                    padding: 1rem 1rem 0rem !important;
+
+                    .info-mobile-row {
+                        width: 100% !important;
+                        display: flex !important;
+                        margin-bottom: 1rem !important;
+                        align-items: center;
+
+                        p {
+                            padding: 0 !important;
+                            color: black !important;
+                            font-weight: 600 !important;
+                        }
+
+                        span {
+                            font-size: 1.1rem !important;
+                            margin-left: 1rem !important;
+                            padding: 0.2rem 0.4rem !important;
+                        }
+                    }
+                }
+            }
+
+            .payment {
+                .options {
+                    .item {
+                        padding: 0.6rem 0 !important;
+                    }
+                    .form-payment-wrapper-img {
+                        img {
+                            width: 100% !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

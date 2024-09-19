@@ -1,0 +1,72 @@
+.loading-container {
+    width: 100%;
+    height: 100vh;
+    background: rgb(0, 0, 0, 60%);
+    position: fixed;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .wrapper {
+        width: 26%;
+        height: auto;
+        padding: 40px;
+        border-radius: 20px;
+        background-color: white;
+
+        svg {
+            font-size: 40px;
+            color: var(--background-color);
+            animation: 1s loading ease infinite;
+        }
+
+        @keyframes loading {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        p {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    }
+}
+
+@media screen and (max-width: 913px) {
+    .loading-container {
+        .wrapper {
+            width: 32% !important;
+            padding: 30px !important;
+        }
+
+        svg {
+            font-size: 36px !important;
+        }
+
+        p {
+            font-size: 16px !important;
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .loading-container {
+        .wrapper {
+            width: 50% !important;
+            padding: 18px !important;
+        }
+
+        svg {
+            font-size: 30px !important;
+        }
+
+        p {
+            font-size: 14px !important;
+        }
+    }
+}

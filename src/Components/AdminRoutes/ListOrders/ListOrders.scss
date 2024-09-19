@@ -1,0 +1,225 @@
+.listorder-container {
+    position: relative;
+    padding-left: 26rem;
+    width: 100%;
+    height: 100%;
+
+    .listorder-container-btn {
+        position: absolute;
+        right: 2rem;
+        margin-top: 1rem;
+
+        svg {
+            font-size: 1.7rem;
+            padding-right: 0.4rem;
+        }
+
+        button {
+            padding: 1rem 1.2rem;
+            background: var(--text-green);
+            font-size: 1.7rem;
+            font-weight: 600;
+            color: var(--text-white-color);
+            border: none;
+            border-radius: 1rem;
+        }
+
+        button:hover {
+            opacity: 0.8;
+            cursor: pointer;
+        }
+    }
+
+    .listorder-header {
+        width: 100%;
+        height: 8rem;
+        background: var(--background-color);
+        font-size: 2.8rem;
+        font-weight: 600;
+        color: var(--text-white-color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    table {
+        margin: 6rem auto 0;
+        width: 98%;
+
+        td {
+            img {
+                width: 6rem;
+                height: 6rem;
+                background-size: cover;
+            }
+        }
+
+        .listorder-description {
+            width: 20%;
+            overflow: hidden;
+        }
+
+        button {
+            font-weight: 600;
+            font-size: 1.5rem;
+            color: var(--text-white-color);
+            border: none;
+            width: 10rem;
+            height: 4rem;
+            border-radius: 1rem;
+            padding: 1rem 1rem;
+            cursor: pointer;
+        }
+
+        .btn-edit {
+            margin-right: 1rem;
+            background-color: var(--background-color);
+        }
+
+        .btn-delete {
+            background-color: var(--btn-color);
+        }
+    }
+
+    table,
+    th,
+    tr,
+    td {
+        border: 0.1rem solid var(--border-line);
+        border-collapse: collapse;
+        padding: 1rem;
+        font-size: 1.5rem;
+
+        span {
+            font-weight: 600;
+            font-size: 1.5rem;
+        }
+    }
+}
+
+.listorder-box {
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+    height: 100vh;
+    background: var(--text-black-06);
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    .wrapper {
+        width: 54%;
+        min-height: 48rem;
+        max-height: 68rem;
+        background: var(--text-white-color);
+        border-radius: 1rem;
+        padding: 2rem;
+
+        h3 {
+            padding: 2rem;
+            font-size: 2.6rem;
+        }
+
+        section {
+            display: flex;
+            max-height: 50rem;
+            overflow-y: scroll;
+
+            .wrapper-col {
+                width: 100%;
+
+                .wrapper-item {
+                    width: 100%;
+                    margin: 1.2rem 0;
+                    display: flex;
+                    align-items: center;
+
+                    span {
+                        font-size: 1.5rem;
+                        width: 10rem;
+                        text-align: left;
+                        padding-right: 1rem;
+                    }
+
+                    input,
+                    select {
+                        flex: 1;
+                        font-size: 1.5rem;
+                        padding-left: 1rem;
+                        padding: 1rem;
+                        border: 0.2rem solid var(--text-black-06);
+                        outline: none;
+                        border-radius: 0.3rem;
+                    }
+
+                    select {
+                        option {
+                            font-size: 1.5rem;
+                        }
+                    }
+
+                    .title {
+                        width: 100%;
+                        font-size: 1.8rem;
+                        line-height: 3rem;
+                        text-align: center;
+                        border-top: 1px solid #666;
+                        border-left: 1px solid #666;
+                        border-right: 1px solid #666;
+                    }
+
+                    .list-product {
+                        tbody {
+                            width: 100%;
+                            tr {
+                                th {
+                                    font-size: 1.5rem;
+                                    min-width: 12rem;
+                                }
+
+                                td {
+                                    font-size: 1.5rem;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                table,
+                th,
+                tr,
+                td {
+                    border: 0.1rem solid #666;
+                    border-collapse: collapse;
+                    padding: 1rem;
+                    font-size: 1.5rem;
+                    width: 100%;
+                }
+            }
+
+            .wrapper-col:nth-child(1) {
+                margin-right: 4rem;
+            }
+        }
+
+        button {
+            font-size: 1.6rem;
+            font-weight: 600;
+            padding: 0.8rem 2.4rem;
+            margin-top: 2rem;
+            color: var(--text-white-color);
+            outline: none;
+            border: none;
+            border-radius: 1rem;
+            cursor: pointer;
+        }
+
+        .btn-edit {
+            margin-right: 2rem;
+            background-color: var(--text-green);
+        }
+
+        .btn-delete {
+            background-color: var(--btn-color);
+        }
+    }
+}

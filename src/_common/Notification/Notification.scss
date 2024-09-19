@@ -1,0 +1,87 @@
+.notification-container {
+    width: 20%;
+    height: auto;
+    position: fixed;
+    z-index: 999;
+    top: 40%;
+    left: 40%;
+
+    .notification-container-wrapper {
+        width: 100%;
+        height: auto;
+        padding: 20px;
+        border-radius: 20px;
+        background: rgb(0, 0, 0, 70%);
+
+        h2 {
+            font-size: 24px;
+            font-weight: 600;
+            color: white;
+        }
+
+        svg {
+            margin: 12px 0;
+            font-size: 42px;
+        }
+
+        p {
+            width: 100%;
+            font-size: 16px;
+            color: white;
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .notification-container {
+        width: 30% !important;
+        left: 30% !important;
+    }
+}
+
+@media screen and (max-width: 769px) {
+    .notification-container {
+        width: 38% !important;
+        left: 30% !important;
+
+        .notification-container-wrapper {
+            padding: 18px !important;
+
+            h2 {
+                font-size: 22px !important;
+            }
+
+            svg {
+                margin: 10px 0 !important;
+                font-size: 36px !important;
+            }
+
+            p {
+                font-size: 15px !important;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .notification-container {
+        width: 42% !important;
+
+        .notification-container-wrapper {
+            padding: 18px !important;
+
+            h2 {
+                font-size: 18px !important;
+            }
+
+            svg {
+                margin: 8px 0 !important;
+                font-size: 32px !important;
+            }
+
+            p {
+                font-size: 13px !important;
+            }
+        }
+    }
+}

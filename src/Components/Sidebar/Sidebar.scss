@@ -1,0 +1,126 @@
+.sidebar-container {
+    width: 24rem;
+    height: 100%;
+    position: fixed;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+
+    .menu {
+        padding: 0.5rem 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        height: auto;
+        border-radius: 1rem;
+        background-color: var(--background-white);
+
+        .menu-item {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            list-style: none;
+            font-size: 1.5rem;
+            font-weight: 500;
+            padding: 1.2rem 1.6rem;
+            color: var(--text-black-color);
+            text-align: center;
+            letter-spacing: -0.03rem;
+
+            svg {
+                position: absolute;
+                right: 0;
+                width: 4rem;
+                padding: 0 0.4rem 0.2rem 0;
+                font-size: 1.2rem;
+                color: #67686c;
+            }
+        }
+
+        .menu-item:hover {
+            cursor: pointer;
+            color: var(--text-white-color);
+            background-color: var(--background-hover);
+
+            svg {
+                color: var(--text-white-color);
+            }
+        }
+    }
+
+    .menu-mobile {
+        display: none;
+        padding: 1rem;
+        align-items: center;
+
+        .menu-mobile-item {
+            flex: 1;
+
+            svg {
+                font-size: 2.4rem;
+                color: var(--background-color);
+            }
+
+            p {
+                margin-top: 0.2rem;
+                font-size: 1.3rem;
+                color: var(--background-color);
+            }
+        }
+    }
+
+    .banner {
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+        border-radius: 1rem;
+        margin-top: 1rem;
+
+        img {
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    }
+}
+
+@media screen and (max-width: 1025px) {
+    .menu-item {
+        font-size: 1.4rem !important;
+    }
+}
+
+@media screen and (max-width: 769px) {
+    .sidebar-container {
+        width: 100% !important;
+        height: auto !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        z-index: 201;
+        box-shadow: -1px -1px 3px rgba(0, 0, 0, 0.15);
+
+        .menu {
+            flex-direction: row;
+        }
+
+        .menu-mobile {
+            display: flex !important;
+
+            p {
+                font-size: 1.1rem !important;
+            }
+        }
+
+        .menu-desktop {
+            display: none !important;
+        }
+
+        .banner {
+            display: none !important;
+        }
+    }
+}
