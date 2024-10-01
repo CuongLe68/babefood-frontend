@@ -2,9 +2,10 @@ import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 
 //refresh token
+const proxy = process.env.REACT_APP_URL_API_KIDSNUTTIONS_PRODUCT;
 const refreshToken = async () => {
     try {
-        const res = await axios.post('http://localhost:8000/v1/auth/refresh', {
+        const res = await axios.post(`${proxy}/auth/refresh`, {
             withCredentials: true, //bắt buộc xác thực
         });
         return res.data;

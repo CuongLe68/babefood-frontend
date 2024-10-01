@@ -273,7 +273,7 @@ export const sendCurrentProduct = async (dispatch, navigate, product) => {
     try {
         dispatch(sendInforProductSuccess(product));
         navigate('/san-pham/thong-tin-chi-tiet');
-        window.location.reload();
+        // window.location.reload();
     } catch (error) {
         dispatch(sendInforProductFailed());
     }

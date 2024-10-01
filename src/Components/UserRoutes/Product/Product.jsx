@@ -44,7 +44,7 @@ function Product() {
     function getCurrentListComment(list) {
         let currentListProduct = [];
         for (let i = 0; i < list?.length; i++) {
-            if (currentProduct.id === list[i].currentProduct.id) {
+            if (currentProduct?.id === list[i].currentProduct.id) {
                 currentListProduct.push(list[i]);
             }
         }
@@ -267,24 +267,24 @@ function Product() {
                 <div className="product-body">
                     <div className="product-right">
                         <div className="product-right-item">
-                            <img src={currentProduct.avatar} alt="" />
+                            <img src={currentProduct?.avatar} alt="" />
                         </div>
                         <div className="product-right-description">
                             <div className="product-right-description-title">
-                                <p>{currentProduct.description}</p>
+                                <p>{currentProduct?.description}</p>
                                 <div className="product-right-description-title-price">
                                     <span>
                                         {Intl.NumberFormat('de-DE', { style: 'currency', currency: 'VND' }).format(
-                                            currentProduct.cost,
+                                            currentProduct?.cost,
                                         )}
                                     </span>
                                     <span>
                                         {Intl.NumberFormat('de-DE', { style: 'currency', currency: 'VND' }).format(
-                                            currentProduct.price,
+                                            currentProduct?.price,
                                         )}
                                     </span>
                                     <div className="product-right-description-title-price-percent">
-                                        {currentProduct.percent}%
+                                        {currentProduct?.percent}%
                                     </div>
                                 </div>
                             </div>
@@ -303,7 +303,7 @@ function Product() {
                                         <FontAwesomeIcon icon={faPlus} onClick={(e) => handleCount('+')} />
                                     </div>
                                 </div>
-                                <span>Còn lại: {currentProduct.number} sản phẩm</span>
+                                <span>Còn lại: {currentProduct?.number} sản phẩm</span>
                                 <div className="product-right-description-payment-box-btns">
                                     <button
                                         className="product-right-description-payment-box-btn"
@@ -328,27 +328,27 @@ function Product() {
                             </tr>
                             <tr>
                                 <th>Tên sản phẩm</th>
-                                <td>{currentProduct.description}</td>
+                                <td>{currentProduct?.description}</td>
                             </tr>
                             <tr>
                                 <th>Thương hiệu</th>
-                                <td>{currentProduct.name}</td>
+                                <td>{currentProduct?.name}</td>
                             </tr>
                             <tr>
                                 <th>Xuất xứ thương hiệu</th>
-                                <td>{currentProduct.brandOrigin}</td>
+                                <td>{currentProduct?.brandOrigin}</td>
                             </tr>
                             <tr>
                                 <th>Sản xuất tại</th>
-                                <td>{currentProduct.madeIn}</td>
+                                <td>{currentProduct?.madeIn}</td>
                             </tr>
                             <tr>
                                 <th>Nhà máy sản xuất</th>
-                                <td>{currentProduct.producer}</td>
+                                <td>{currentProduct?.producer}</td>
                             </tr>
                             <tr>
                                 <th>Trọng lượng sản phẩm</th>
-                                <td>{currentProduct.weight}</td>
+                                <td>{currentProduct?.weight}</td>
                             </tr>
                             <tr>
                                 <th>Thành phần</th>
@@ -386,11 +386,11 @@ function Product() {
                             </tr>
                             <tr>
                                 <th>Hướng dẫn sử dụng</th>
-                                <td>{currentProduct.userManual}</td>
+                                <td>{currentProduct?.userManual}</td>
                             </tr>
                             <tr>
                                 <th>Hướng dẫn bảo quản</th>
-                                <td>{currentProduct.storageInstructions}</td>
+                                <td>{currentProduct?.storageInstructions}</td>
                             </tr>
                         </tbody>
                     </table>
