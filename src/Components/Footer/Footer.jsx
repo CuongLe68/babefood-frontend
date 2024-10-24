@@ -54,14 +54,14 @@ function Footer() {
             </div>
             <div className="footer-section">
                 <div className="footer-item">
-                    <h3>Công ty cổ phần Kids Nuttions Việt Nam</h3>
+                    <h3>Công ty cổ phần Babefood Việt Nam</h3>
                     <span>Email: cskh@kidsnuttions.com</span>
                     <span>Điện thoại: 098 9999 9999</span>
                     <span>Văn phòng: Tầng 2 Tòa nhà Phú Mỹ Hưng Tower, 08 Hoàng Văn Thái, P.Tân Phú, Q.7, HCM</span>
                 </div>
                 <div className="footer-item">
                     <h3>Giới thiệu</h3>
-                    <Link to="/gioi-thieu">Giới Thiệu Về Kids Nuttions</Link>
+                    <Link to="/gioi-thieu">Giới Thiệu Về Babefood</Link>
                     <Link to="/tuyen-dung">Chính sách bảo mật</Link>
                     <Link to="/cham-soc-khach-hang">Điều khoản chung</Link>
                     <Link to="/cham-soc-khach-hang">Bảo hành & Bảo trì</Link>

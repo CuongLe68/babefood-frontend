@@ -52,7 +52,7 @@ const Sidebar = () => {
                     <FontAwesomeIcon icon={faChevronRight} />
                 </div>
                 <Link className="menu-item" to="/gioi-thieu">
-                    Giới Thiệu Về Kids Nuttions
+                    Giới Thiệu Về Babefood
                     <FontAwesomeIcon icon={faChevronRight} />
                 </Link>
                 <Link className="menu-item" to="/">
