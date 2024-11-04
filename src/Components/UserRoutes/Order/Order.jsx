@@ -286,7 +286,7 @@ function Order() {
                                         </p>
                                     </div>
                                     <div className="order-item-footer-row-2">
-                                        <p>Quản lý bởi hệ thống Mouse Store, giao hàng sớm nhất 3 đến 5 ngày</p>
+                                        <p>Quản lý bởi hệ thống cửa hàng, giao hàng sớm nhất 3 đến 5 ngày</p>
                                         <div className="order-item-footer-row-2-btn">
                                             <Link to="/">Quay về</Link>
                                         </div>
