@@ -215,8 +215,8 @@ export const getAllProducts = async (dispatch) => {
     try {
         const res = await axios.get(`${proxy}/user/all-products/`, {
             headers: {
-                appKey: process.env.REACT_APP_APP_KEY,
-                appId: process.env.REACT_APP_APP_ID,
+                appKey: '123123123',
+                appId: '123123124',
             },
         });
         dispatch(getProductSuccess(res.data));

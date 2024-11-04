@@ -10,6 +10,7 @@ import Sidebar from '../../Sidebar/Sidebar';
 import './Payment.scss';
 import { checkPaid } from '../../../redux/apiPayment';
 import Notification from '../../../_common/Notification/Notification';
+import magiaodich from '../../../assets/imgs/magiaodich.jpg';
 
 let price = 0; // tổng tiền giả để gán cho state total
 let arrCarts = []; // danh sách tất cả sản phẩm đã tick
@@ -59,11 +60,11 @@ function Payment() {
     //Thông tin ngân hàng
     let BANK_INFO = {
         BANK_ID: 'MB', //Tên ngân hàng
-        ACCOUNT_NO: '0862368128', //Số tài khoản người nhận
+        ACCOUNT_NO: '0889999999', //Số tài khoản người nhận
         TEMPLATE: 'compact',
-        AMOUNT: total,
+        AMOUNT: total / 2,
         DESCRIPTION: codeBank,
-        ACCOUNT_NAME: 'PHAM THI HOAI THUONG',
+        ACCOUNT_NAME: 'NGUYEN VAN A',
     };
 
     //Mã qr code hiển thị
@@ -134,7 +135,7 @@ function Payment() {
             user: user,
             listproduct: arrCarts,
             paymentMethods: payMethod,
-            total: total,
+            total: payMethod === 'offline' ? total : total / 2,
             tradingCode: code,
             isPayment: false,
             istransported: false,
@@ -147,7 +148,7 @@ function Payment() {
     };
 
     //đặt hàng
-    const handleSubmit = () => {
+    const handleSubmit = (type) => {
         /* 3 giá trị tự sinh ra nữa ngoài id của giao dịch là 
             isPayment: false -> là đơn hàng chưa thanh toán (true là đơn hàng đã thanh toán)
             istransported: false -> là đơn hàng chưa được vận chuyển (true là đơn hàng đã được vận chuyển)
@@ -166,7 +167,7 @@ function Payment() {
                 }));
             }, 3000);
         } else {
-            let newOrders = crateNewOder('offline'); //Tạo order mới
+            let newOrders = crateNewOder(paymentMethods); //Tạo order mới
             if (paymentMethods === 'offline') {
                 createNewOrder(dispatch, newOrders, axiosJWT);
                 setPopup({
@@ -176,14 +177,22 @@ function Payment() {
                 });
                 setTimeout(() => {
                     navigate('/tai-khoan/don-hang');
-                }, 3000);
+                }, 2500);
             } else {
-                //Thanh toán online realtime nên tạm thời ẩn đi, hết api free thì xài lại
-                // if (code === '') {
-                //     alert('Không được để trống mã giao dịch');
-                // } else {
-                //     createNewOrder(dispatch, navigate, newOrders, axiosJWT);
-                // }
+                // Thanh toán online realtime nên tạm thời ẩn đi, hết api free thì xài lại
+                if (code === '') {
+                    alert('Không được để trống mã giao dịch');
+                } else {
+                    createNewOrder(dispatch, newOrders, axiosJWT);
+                    setPopup({
+                        isShow: true,
+                        type: 'success',
+                        description: 'descriptionPayment',
+                    });
+                    setTimeout(() => {
+                        navigate('/tai-khoan/don-hang');
+                    }, 2500);
+                }
             }
         }
     };
@@ -199,41 +208,6 @@ function Payment() {
                     if (arrCarts[i]._id === listCarts[j]._id) checks[j].setAttribute('checked', '');
                 }
             }
-        } else if (user) {
-            //vào component thì call api thanh toán, Remove khỏi hàm thì clear interval đi
-            let shouldCallCreateNewOrder = true; //cho phép gọi hàm createNewOrder
-            const intervalID = setInterval(() => {
-                checkPaid()
-                    .then((data) => {
-                        for (let i = 0; i <= 1; i++) {
-                            //Thanh toán online
-                            if (data[i]['Mô tả'].includes(BANK_INFO.DESCRIPTION) && data[i]['Giá trị'] >= total) {
-                                if (shouldCallCreateNewOrder) {
-                                    const newOrders = crateNewOder('online');
-                                    createNewOrder(dispatch, navigate, newOrders, axiosJWT);
-                                    shouldCallCreateNewOrder = false; // Đánh dấu là không cần gọi createNewOrder nữa
-                                    setPopup({
-                                        isShow: true,
-                                        type: 'success',
-                                        description: 'descriptionPayment',
-                                    });
-                                    setTimeout(() => {
-                                        navigate('/tai-khoan/don-hang');
-                                    }, 4000);
-                                }
-                            }
-                        }
-                    })
-                    .catch((error) => {
-                        console.log(error);
-                    });
-            }, 1000);
-
-            // Xóa interval khi component bị unmount
-            return () => {
-                clearInterval(intervalID);
-                shouldCallCreateNewOrder = false;
-            };
         }
     }, []);
 
@@ -392,52 +366,9 @@ function Payment() {
                                     type="radio"
                                     onChange={(e) => handleCheckPayment('online')}
                                 />
-                                Thanh toán online
+                                Thanh toán online (HOT: ƯU ĐÃI GIẢM 50%, MIỄN PHÍ VẬN CHUYỂN)
                             </div>
                             <div className="form-payment">
-                                {/* <span>
-                                    * Vui lòng nhập đầy đủ thông tin khi tiến hành thanh toán, sau đó nhập mã giao dịch
-                                    vào ô Mã giao dịch và tiến hành đặt hàng
-                                </span>
-                                <div className="form-payment-des">
-                                    <h3>Số tài khoản</h3>
-                                    <p>: 09876543210</p>
-                                </div>
-                                <div className="form-payment-des">
-                                    <h3>Ngân Hàng</h3>
-                                    <p>: Vietcombank</p>
-                                </div>
-                                <div className="form-payment-des">
-                                    <h3>Chủ thẻ</h3>
-                                    <p>: Nguyễn Văn A</p>
-                                </div>
-                                <div className="form-payment-des">
-                                    <h3>Số tiền</h3>
-                                    <p>
-                                        {`: ` +
-                                            Intl.NumberFormat('de-DE', {
-                                                style: 'currency',
-                                                currency: 'VND',
-                                            }).format(total)}
-                                    </p>
-                                </div>
-                                <div className="form-payment-des">
-                                    <h3>Nội dung</h3>
-                                    <p>
-                                        : hoten_sodienthoai_muahang
-                                        <span>*vd: lequoccuong_0987235674_muahang</span>
-                                    </p>
-                                </div>
-                                <div className="form-payment-code">
-                                    <span>Mã giao dịch</span>
-                                    <input
-                                        type="text"
-                                        placeholder="Nhập mã giao dịch"
-                                        maxLength={40}
-                                        onChange={(e) => setCode(e.target.value)}
-                                    />
-                                </div> */}
-
                                 {/* test chức năng chuyển online tự động */}
                                 {arrCarts.length === 0 ? (
                                     <div className="form-payment-title">Vui lòng chọn sản phẩm</div>
@@ -447,10 +378,7 @@ function Payment() {
                                             <img src={QR} alt="" />
                                         </div>
                                         <div className="form-payment-info">
-                                            <div className="form-payment-info-desc">
-                                                *Miễn phí vận chuyển khi thanh toán online, vui lòng kiểm tra lại thông
-                                                tin đơn hàng
-                                            </div>
+                                            <div className="form-payment-info-desc">*Thông tin thanh toán</div>
                                             <div className="form-payment-info-item">
                                                 Nội dung chuyển khoản: {BANK_INFO.DESCRIPTION}
                                             </div>
@@ -468,6 +396,19 @@ function Payment() {
                                                 Chủ tài khoản: {BANK_INFO.ACCOUNT_NAME}
                                             </div>
                                             <div className="form-payment-info-item">Ngân hàng: {BANK_INFO.BANK_ID}</div>
+                                        </div>
+                                        <div className="form-payment-code">
+                                            <span>*Xác nhận lại thông tin chuyển khoản</span>
+                                            <div>
+                                                <input
+                                                    type="text"
+                                                    placeholder="<Tên người gửi>  <Mã giao dịch>"
+                                                    maxLength={40}
+                                                    onChange={(e) => setCode(e.target.value)}
+                                                />
+                                                <span>Ví dụ: NGUYEN VAN A 66913442344</span>
+                                            </div>
+                                            <img src={magiaodich} alt="" />
                                         </div>
                                     </div>
                                 )}
@@ -487,7 +428,11 @@ function Payment() {
                                     </div>
                                     <div className="confirm-item">
                                         <p>Phí vận chuyển</p>
-                                        <span>30.000 đ</span>
+                                        <span>150.000 đ</span>
+                                    </div>
+                                    <div className="confirm-item">
+                                        <p>Khuyến mãi</p>
+                                        <span>Không có mã</span>
                                     </div>
                                     <div className="confirm-item">
                                         <p>Tổng thanh toán</p>
@@ -495,7 +440,7 @@ function Payment() {
                                             {Intl.NumberFormat('de-DE', {
                                                 style: 'currency',
                                                 currency: 'VND',
-                                            }).format(total + 30000)}
+                                            }).format(total + 150000)}
                                         </span>
                                     </div>
                                     <div className="cofirm-btn">
@@ -504,7 +449,39 @@ function Payment() {
                                 </div>
                             </div>
                         ) : (
-                            ''
+                            <div className="confirm">
+                                <div className="confirm-description">
+                                    <div className="confirm-item">
+                                        <p>Tổng tiền hàng</p>
+                                        <span>
+                                            {Intl.NumberFormat('de-DE', {
+                                                style: 'currency',
+                                                currency: 'VND',
+                                            }).format(total)}
+                                        </span>
+                                    </div>
+                                    <div className="confirm-item">
+                                        <p>Phí vận chuyển</p>
+                                        <span>0 đ</span>
+                                    </div>
+                                    <div className="confirm-item">
+                                        <p>Khuyến mãi</p>
+                                        <span>Mã giảm 50%</span>
+                                    </div>
+                                    <div className="confirm-item">
+                                        <p>Tổng thanh toán</p>
+                                        <span>
+                                            {Intl.NumberFormat('de-DE', {
+                                                style: 'currency',
+                                                currency: 'VND',
+                                            }).format(total / 2)}
+                                        </span>
+                                    </div>
+                                    <div className="cofirm-btn">
+                                        <button onClick={(e) => handleSubmit()}>Đặt hàng</button>
+                                    </div>
+                                </div>
+                            </div>
                         )}
                     </div>
                 </div>

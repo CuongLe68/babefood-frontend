@@ -231,10 +231,11 @@
                             width: 100%;
                             margin: 2rem 0 2rem 0;
                             display: flex;
-                            align-items: center;
+                            flex-direction: column;
 
                             span {
-                                font-size: 1.5rem;
+                                font-size: 1.6rem;
+                                margin-bottom: 1rem;
                             }
 
                             input {
@@ -246,6 +247,11 @@
                                 border: 0.1rem solid var(--border-line);
                                 font-size: 1.5rem;
                                 padding: 0 1rem;
+                            }
+
+                            img {
+                                margin-top: 2rem;
+                                width: 85%;
                             }
                         }
 
