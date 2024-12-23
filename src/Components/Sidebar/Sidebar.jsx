@@ -48,7 +48,7 @@ const Sidebar = () => {
         <nav className="sidebar-container">
             <ul className="menu menu-desktop">
                 <div className="menu-item" onClick={(e) => handleReload()}>
-                    Trang Chủ1
+                    Trang Chủ
                     <FontAwesomeIcon icon={faChevronRight} />
                 </div>
                 <Link className="menu-item" to="/gioi-thieu">
